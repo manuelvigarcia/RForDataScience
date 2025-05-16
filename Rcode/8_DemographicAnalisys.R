@@ -6,7 +6,7 @@ stats<-read.csv(file.choose())
 rm(stats)
 
 getwd()
-setwd()
+setwd("C:/D/GitRepos/RLanguage/RForDataScience_Data/Section 5 - Data Frames")
 
 # get the file directly
 stats<-read.csv("C:/D/GitRepos/RLanguage/RForDataScience_Data/Section 5 - Data Frames/S5-Demographic-Data.csv")

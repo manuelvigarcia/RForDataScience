@@ -8,7 +8,7 @@ expenses <- c(12051.82, 5695.07, 12319.20, 12089.72, 8658.57, 840.20, 3285.73, 5
 profitPerMonth = revenue - expenses
 print("profit for each month: ")
 print(profitPerMonth)
-profitAfterTax = (revenue * 0.7) - expenses
+profitAfterTax = round(profitPerMonth * 0.7, digits=2)
 print("profit after tax for each month: ")
 print(profitAfterTax)
 profitMargin = round(profitAfterTax / revenue, 2) * 100
@@ -46,3 +46,46 @@ print("The best month: ")
 print(maxMonth)
 print("The worst month: ")
 print(minMonth)
+
+#The exercise actually wanted the results in vector form
+vGoodMonths <- profitAfterTax > mean(profitAfterTax)
+print("Good Months vector: ")
+print(vGoodMonths)
+vBadMonths <- !vGoodMonths
+print("Bad Months vector: ")
+print(vBadMonths)
+vMaxMonth <- profitAfterTax == max(profitAfterTax)
+print("Best Month vector: ")
+print(vMaxMonth)
+vMinMonth <- profitAfterTax == min(profitAfterTax)
+print("Best Month vector: ")
+print(vMinMonth)
+
+#Presented in units of 1000 $
+print("Revenue by month (x$1000):")
+print(round(revenue/1000))
+print("Expenses by month (x$1000):")
+print(round(expenses/1000))
+print("Profit by month (x$1000):")
+print(round(profitPerMonth/1000))
+print("Profit after tax by month (x$1000):")
+print(round(profitAfterTax/1000))
+print("Profit margin by month (x$1000):")
+print(round(profitMargin/1000))
+
+
+#As bonus, place it all in a matrix, easy to consult
+
+yearResults <- rbind(
+  round(revenue/1000),
+  round(expenses/1000),
+  round(profitPerMonth/1000),
+  round(profitAfterTax/1000),
+  profitMargin,
+  vGoodMonths,
+  vBadMonths,
+  vMaxMonth,
+  vMinMonth
+)
+print("The year financial analysis in matrix form:")
+print(yearResults)
